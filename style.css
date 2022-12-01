@@ -1,0 +1,28 @@
+.sticky_wrap {
+    position: relative;
+}
+
+.sticky_wrap:not(.sticky_freeze) {
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky_wrap:not(.sticky_freeze) .sticky_container {
+    position: sticky;
+}
+
+.sticky_top {
+    justify-content: flex-start;
+}
+
+.sticky_bottom {
+    justify-content: flex-end;
+}
+
+.sticky_top .sticky_container {
+    top: 0;
+}
+
+.sticky_bottom .sticky_container {
+    bottom: 0;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky</title>
+
+  <link rel='stylesheet'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap-reboot.min.css'
+    integrity='sha512-IS8Z2ZgFvTz/yLxE6H07ip/Ad+yAGswoD1VliOeC2T4WaPFNPC1TwmQ5zomGS+syaR2oO3aXJGKaHv21Dspx0g=='
+    crossorigin='anonymous' />
+  <link rel='stylesheet'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap-grid.min.css'
+    integrity='sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w=='
+    crossorigin='anonymous' />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .full-screen {
+      min-height: 100vh;
+    }
+
+    .content-box {
+      --c: red;
+      background: var(--c) url(l.png);
+      background-size: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 18px;
+    }
+
+    .content-box:before,
+    .content-box:after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 30px;
+      background-color: var(--c);
+    }
+
+    .content-box:before {
+      content: "TOP";
+    }
+
+    .content-box:after {
+      content: "BOTTOM";
+    }
+
+    ._t1 {
+      --c: red;
+      height: 130vh;
+    }
+
+    ._t2 {
+      --c: green;
+      height: 250vh;
+    }
+
+    ._t3 {
+      --c: yellow;
+      height: 150vh;
+    }
+
+    ._t4 {
+      --c: pink;
+      height: 50vh;
+    }
+
+    .small-screen {
+      height: 50vh;
+      overflow-y: auto;
+    }
+
+    .sticky_bottom ._t1 {
+      bottom: 50px;
+    }
+
+    .sticky_top ._t1,
+    .sticky_top ._t3 {
+      top: 50px;
+    }
+
+    #e2 ._t1 {
+      /* margin-top: -100px;
+      margin-bottom: -100px; */
+    }
+  </style>
+</head>
+
+<body>
+  <br><br>
+
+  <div class="container">
+    <div class="row small-screen" id="e1">
+      <div class="col-12 col-sm-6">
+        <div class="content-box _t1"></div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="content-box _t2"></div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row full-screen" id="e2">
+      <div class="col-12 col-sm-3">
+        <div class="content-box _t1">margin-top:-100px</div>
+      </div>
+      <div class="col-12 col-sm-3">
+        <div class="content-box _t2"></div>
+      </div>
+      <div class="col-12 col-sm-3">
+        <div class="content-box _t3"></div>
+      </div>
+      <div class="col-12 col-sm-3">
+        <div class="content-box _t4"></div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="row small-screen" id="e3">
+      <div class="col-12 col-sm-4">
+        <div class="content-box _t1"></div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="content-box _t3"></div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="content-box _t4"></div>
+      </div>
+    </div>
+    <br /><br />
+  </div>
+
+
+  <script src="script.js"></script>
+  <script>
+
+    var s1, s2, s3;
+    document.addEventListener('DOMContentLoaded', function () {
+      s1 = new FloatSticky(document.getElementById('e1'));
+      s2 = new FloatSticky(document.getElementById('e2'));
+      s3 = new FloatSticky(document.getElementById('e3'));
+    });
+  </script>
+</body>
+
+</html>
